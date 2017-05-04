@@ -1,0 +1,101 @@
+@import 'fonts';
+@import 'initialize';
+
+$font-bastaky: 'tall_dark_and_handsomeCn';
+$font-icon: 'icons';
+$color-black: #222;
+$color-white: #fff;
+$color-red: #CC3333;
+$color-blue: #9998FF;
+$color-green: #588E3E;
+$color-yellow: #FDD23B;
+
+@mixin transition-all($seconds) {
+  -webkit-transition: all $seconds;
+          transition: all $seconds;
+}
+@mixin transform-rotate($grades) {
+  -webkit-transform: rotate($grades);
+	   -moz-transform: rotate($grades);
+	    -ms-transform: rotate($grades);
+	     -o-transform: rotate($grades);
+	        transform: rotate($grades);
+}
+
+html {
+  font-size: 1em;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100% !important;
+}
+
+body {
+  /*background-color: #222;*/
+	background: linear-gradient(90deg, $color-green 50%, $color-yellow 50%);
+  height: 100%;
+	width: 100%;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  font-family: $font-bastaky;
+  font-weight: normal;
+}
+h1 {
+  text-shadow: 3px 3px rgba(0,0,0,.5);
+}
+
+.rhombus {
+   @include transform-rotate(45deg);
+
+	-webkit-box-shadow: 0px 10px 30px 0px rgba(0,0,0,.75);
+	   -moz-box-shadow: 0px 10px 30px 0px rgba(0,0,0,.75);
+	        box-shadow: 0px 10px 30px 0px rgba(0,0,0,.75);
+}
+
+#home {
+    background-image: url('../img/bastaky_logo_fondo.png');
+    background-size: cover;
+    background-position: center;
+    display: block;
+
+    width: 100%;
+    /*max-width: 906px;*/
+    height: 100%;
+    max-height: 906px;
+
+    @include transition-all(2s);
+}
+
+.home-sq {
+  /*background-color: #F00;*/
+  background-size: 100%;   
+  margin: 0 auto;
+  position: absolute;
+  top: 0px;
+}
+
+#home-sq-up {
+  @extend .home-sq;
+  background-image: url('../img/bastaky_logo_up.png');
+}
+#home-sq-left {
+  @extend .home-sq;
+  background-image: url('../img/bastaky_logo_left.png');
+}
+#home-sq-right {
+  @extend .home-sq;
+  background-image: url('../img/bastaky_logo_right.png');
+}
+#home-sq-down {
+  @extend .home-sq;
+  background-image: url('../img/bastaky_logo_down.png');
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { }
+@-moz-document url-prefix() { }
+
+@media only screen and (min-width : 1024px) {
+}

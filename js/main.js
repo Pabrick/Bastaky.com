@@ -1,4 +1,5 @@
 var isDeviceMobile;
+var homeSqUp;
 
 window.onload = function() {
     BrowserDetect.init();
@@ -9,6 +10,7 @@ window.onload = function() {
 	console.log( 'BrowserDetect.browser - ' + BrowserDetect.browser );
 	console.log( 'MobileDevide = ' + isDeviceMobile );
 
+	init();
     window.onresize();
 };
 
@@ -32,11 +34,70 @@ window.mobilecheck = function() {
 })();
 
 window.onresize = function(){
+	console.log(window.innerHeight + '/'+ window.innerWidth );
+	placeInitStage();
 }
 
 window.onscroll = function(){
 };
 
+
+function init() {
+	homeSqUp = new CustomElement('home-sq-up');
+}
+
+function CustomElement( id ) {
+	this.elem = document.getElementById(id);
+	this.setSize = function (size) {
+		if(size > 906 ){
+			size = 906;
+		}
+		this.elem.style.height = size;
+		this.elem.style.width = size;
+	};
+	this.setPosition = function (top, left) {
+		this.elem.style.top = top;
+		this.elem.style.left = left;
+	};
+}
+
+function setSize( elem, size ) {
+	if(size > 906 ){
+		size = 906;
+	}
+	$(elem).css('height', size + 'px');
+	$(elem).css('width', size + 'px');
+}
+function setPosition( elem, top, left ) {
+	$(elem).css('top', top + 'px');
+	$(elem).css('left', left + 'px');
+}
+function placeInitStage(){
+	var currentSize, currentTop, currentLeft;
+
+	currentSize = Math.min(window.innerWidth, window.innerHeight);
+	
+	if(window.innerWidth < window.innerHeight){
+		currentTop = (window.innerHeight - window.innerWidth) / 2;
+		currentLeft = 0;
+	}else{
+		currentTop = 0;
+		currentLeft = (window.innerWidth - window.innerHeight) / 2;
+	}
+
+	homeSqUp.setSize(currentSize);
+	
+
+	//setSize('#home-sq-up', currentSize);
+	setSize('#home-sq-left', currentSize);
+	setSize('#home-sq-right', currentSize);
+	setSize('#home-sq-down', currentSize);
+
+	setPosition('#home-sq-up', currentTop, currentLeft);
+	setPosition('#home-sq-left', currentTop, currentLeft);
+	setPosition('#home-sq-right', currentTop, currentLeft);
+	setPosition('#home-sq-down', currentTop, currentLeft);
+}
 
 var BrowserDetect = {
 	init: function () {
