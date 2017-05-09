@@ -1,5 +1,7 @@
-var isDeviceMobile;
-var homeSqUp;
+'use strict';
+
+var isDeviceMobile, currentBrowser;
+var homeSqUp, homeSqDown, homeSqLeft, homeSqRight;
 
 window.onload = function() {
     BrowserDetect.init();
@@ -33,48 +35,24 @@ window.mobilecheck = function() {
     };
 })();
 
-window.onresize = function(){
-	console.log(window.innerHeight + '/'+ window.innerWidth );
+window.onresize = function() {
+	/*console.log(window.innerHeight + '/'+ window.innerWidth );*/
 	placeInitStage();
 }
 
-window.onscroll = function(){
+window.onscroll = function() {
 };
 
 
 function init() {
-	homeSqUp = new CustomElement('home-sq-up');
+	homeSqUp = new HomeSquare('home-sq-up');
+	homeSqDown = new HomeSquare('home-sq-down');
+	homeSqLeft = new HomeSquare('home-sq-left');
+	homeSqRight = new HomeSquare('home-sq-right');
 }
 
-function CustomElement( id ) {
-	this.elem = document.getElementById(id);
-	this.setSize = function (size) {
-		if(size > 906 ){
-			size = 906;
-		}
-		this.elem.style.height = size;
-		this.elem.style.width = size;
-	};
-	this.setPosition = function (top, left) {
-		this.elem.style.top = top;
-		this.elem.style.left = left;
-	};
-}
-
-function setSize( elem, size ) {
-	if(size > 906 ){
-		size = 906;
-	}
-	$(elem).css('height', size + 'px');
-	$(elem).css('width', size + 'px');
-}
-function setPosition( elem, top, left ) {
-	$(elem).css('top', top + 'px');
-	$(elem).css('left', left + 'px');
-}
-function placeInitStage(){
+function placeInitStage() {
 	var currentSize, currentTop, currentLeft;
-
 	currentSize = Math.min(window.innerWidth, window.innerHeight);
 	
 	if(window.innerWidth < window.innerHeight){
@@ -86,19 +64,18 @@ function placeInitStage(){
 	}
 
 	homeSqUp.setSize(currentSize);
-	
+	homeSqDown.setSize(currentSize);
+	homeSqLeft.setSize(currentSize);
+	homeSqRight.setSize(currentSize);
 
-	//setSize('#home-sq-up', currentSize);
-	setSize('#home-sq-left', currentSize);
-	setSize('#home-sq-right', currentSize);
-	setSize('#home-sq-down', currentSize);
-
-	setPosition('#home-sq-up', currentTop, currentLeft);
-	setPosition('#home-sq-left', currentTop, currentLeft);
-	setPosition('#home-sq-right', currentTop, currentLeft);
-	setPosition('#home-sq-down', currentTop, currentLeft);
+	homeSqUp.setPosition(currentTop, currentLeft);
+	homeSqDown.setPosition(currentTop, currentLeft);
+	homeSqLeft.setPosition(currentTop, currentLeft);
+	homeSqRight.setPosition(currentTop, currentLeft);
 }
 
+
+/* MY CLASSES */
 var BrowserDetect = {
 	init: function () {
 		this.browser = this.searchString(this.dataBrowser) || "Other";
@@ -134,3 +111,18 @@ var BrowserDetect = {
 		{string: navigator.userAgent, subString: "Opera", identity: "Opera"}
 	]
 };
+
+function HomeSquare(id) {
+	this.id = id;
+    this.setSize = function(size) {
+		if(size > 906 ){
+			size = 906;
+		}
+		document.getElementById(id).style.height = size + "px";
+		document.getElementById(id).style.width = size + "px";
+	};
+	this.setPosition = function (top, left) {
+		document.getElementById(id).style.top = top + "px";
+		document.getElementById(id).style.left = left + "px";
+	}
+}
