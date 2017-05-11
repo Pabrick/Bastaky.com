@@ -1,6 +1,7 @@
 @import 'fonts'
 @import 'initialize'
 
+/* VARIABLE GLOBALES */
 $font-bastaky: 'tall_dark_and_handsomeCn'
 $font-icon: 'icons'
 $color-black: #222
@@ -9,6 +10,7 @@ $color-red: #CC3333
 $color-blue: #9998FF
 $color-green: #588E3E
 $color-yellow: #FDD23B
+$home-button-arrow-padding: 20px
 
 @mixin transition-all($seconds)
   -webkit-transition: all $seconds
@@ -157,10 +159,69 @@ h1
   @extend .home-sq
   background-image: url('../img/bastaky_logo_down.png')
 
+.home-button
+  background-repeat: no-repeat 
+  background-size: 20px 20px
+  color: $color-white
+  font-weight: 200
+  cursor: pointer
+  font-family: $font-bastaky
+  text-shadow: 2px 2px 2px $color-black
+  letter-spacing: 2px
+  font-size: 22px
+  height: 20px
+  width: 130px
+  position: absolute
+  margin: 0 auto
+  z-index: 9
+
+#bt-left
+  @extend .home-button
+  background-image: url('../img/arrow_left.png')
+  background-position: left
+  text-align: left
+  padding-left: $home-button-arrow-padding
+  left: 10%
+
+#bt-right
+  @extend .home-button
+  background-image: url('../img/arrow_right.png')
+  background-position: right
+  text-align: right
+  padding-right: $home-button-arrow-padding
+  right: 10%
+
+#bt-down
+  @extend .home-button
+  background-image: url('../img/arrow_down.png')
+  background-position: bottom
+  text-align: center
+  padding-bottom: $home-button-arrow-padding
+  bottom: 10%
+
 .space
   @include transition-all(2s)
 
 @media screen and (-webkit-min-device-pixel-ratio:0)
 @-moz-document url-prefix()
 
-@media only screen and (min-width : 1024px)
+@media only screen and (min-width : 768px)
+  $home-button-arrow-padding: 30px
+
+  .home-button
+    background-size: 32px 32px
+    font-size: 36px
+    height: 32px
+    width: 130px
+
+  #bt-left
+    padding-left: 30px
+    left: 10%
+
+  #bt-right
+    padding-right: 30px
+    right: 10%
+
+  #bt-down
+    padding-bottom: 30px
+    bottom: 10%

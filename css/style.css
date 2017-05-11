@@ -118,6 +118,7 @@ li {
 .clearfix {
   *zoom: 1; }
 
+/* VARIABLE GLOBALES */
 html {
   font-size: 1em;
   height: 100%;
@@ -245,10 +246,65 @@ h1 {
 #home-sq-down {
   background-image: url("../img/bastaky_logo_down.png"); }
 
+.home-button, #bt-left, #bt-right, #bt-down {
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  color: #fff;
+  font-weight: 200;
+  cursor: pointer;
+  font-family: "tall_dark_and_handsomeCn";
+  text-shadow: 2px 2px 2px #222;
+  letter-spacing: 2px;
+  font-size: 22px;
+  height: 20px;
+  width: 130px;
+  position: absolute;
+  margin: 0 auto;
+  z-index: 9; }
+
+#bt-left {
+  background-image: url("../img/arrow_left.png");
+  background-position: left;
+  text-align: left;
+  padding-left: 20px;
+  left: 10%; }
+
+#bt-right {
+  background-image: url("../img/arrow_right.png");
+  background-position: right;
+  text-align: right;
+  padding-right: 20px;
+  right: 10%; }
+
+#bt-down {
+  background-image: url("../img/arrow_down.png");
+  background-position: bottom;
+  text-align: center;
+  padding-bottom: 20px;
+  bottom: 10%; }
+
 .space {
   -webkit-transition: all 2s;
   transition: all 2s; }
 
 @-moz-document url-prefix();
+@media only screen and (min-width: 768px) {
+  .home-button, #bt-left, #bt-right, #bt-down {
+    background-size: 32px 32px;
+    font-size: 36px;
+    height: 32px;
+    width: 130px; }
+
+  #bt-left {
+    padding-left: 30px;
+    left: 10%; }
+
+  #bt-right {
+    padding-right: 30px;
+    right: 10%; }
+
+  #bt-down {
+    padding-bottom: 30px;
+    bottom: 10%; } }
 
 /*# sourceMappingURL=style.css.map */

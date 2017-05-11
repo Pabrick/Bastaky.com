@@ -1,7 +1,12 @@
 'use strict';
 
+
+
 var isDeviceMobile, currentBrowser;
+var arrayLanguajes = ["spa", "eng"];
+var currentLanguaje = arrayLanguajes[0];
 var homeSqUp, homeSqDown, homeSqLeft, homeSqRight;
+var btHomeDown, btHomeLeft, btHomeRight;
 
 window.onload = function() {
     BrowserDetect.init();
@@ -12,7 +17,7 @@ window.onload = function() {
 	console.log( 'BrowserDetect.browser - ' + BrowserDetect.browser );
 	console.log( 'MobileDevide = ' + isDeviceMobile );
 
-	init();
+	RetrieveData( arrayLanguajes, init );
     window.onresize();
 };
 
@@ -43,12 +48,59 @@ window.onresize = function() {
 window.onscroll = function() {
 };
 
-
 function init() {
+	TranslateSite( currentLanguaje );
 	homeSqUp = new HomeSquare('home-sq-up');
 	homeSqDown = new HomeSquare('home-sq-down');
 	homeSqLeft = new HomeSquare('home-sq-left');
 	homeSqRight = new HomeSquare('home-sq-right');
+
+	btHomeDown = new HomeSquare('bt-down');
+	btHomeLeft = new HomeSquare('bt-left');
+	btHomeRight = new HomeSquare('bt-right');
+}
+
+function RetrieveData(array, callback) {
+	//this.array = array;
+	var languaje = array.shift();
+	var urlData = "data/" + languaje + ".json";
+	init();
+/*
+	var request = new XMLHttpRequest();
+		request.open('GET', urlData, true);
+		request.onload = function() {
+			if (request.status >= 200 && request.status < 400) {
+				PabrickUtils.showDebug("log", "Languaje loaded: " + languaje);
+				var data = JSON.parse(request.responseText);
+				console.log(data);
+			} else {
+				PabrickUtils.showDebug("error", "Languaje NOT loaded: " + languaje + " - We reached our target server, but it returned an error");
+			}
+		};
+		request.onerror = function() {};
+		request.send();
+*/
+/*
+	$.getJSON(urlData, function(data) {
+		$.each(data, function(i, pack) {
+			arrayLanguajes[i] = pack;
+		});
+	}).then(function(data){
+		PabrickUtils.showDebug("log", "Languaje loaded: " + languaje);
+		if(array.length === 0){
+			callback();
+		}else{
+			RetrieveData(array, callback); 
+		}
+		init();
+    });
+*/
+}
+
+function TranslateSite( lan ) {
+	document.getElementById("bt-left").innerHTML = "Desarrollador";
+	document.getElementById("bt-right").innerHTML = "VideoJuegos";
+	document.getElementById("bt-down").innerHTML = "Personal";
 }
 
 function placeInitStage() {
@@ -72,10 +124,35 @@ function placeInitStage() {
 	homeSqDown.setPosition(currentTop, currentLeft);
 	homeSqLeft.setPosition(currentTop, currentLeft);
 	homeSqRight.setPosition(currentTop, currentLeft);
+
+	var offsetTop = ((currentSize - document.getElementById("bt-left").offsetHeight ) / 2) + currentSize * 0.15;
+	var offsetTop2 = offsetTop + currentSize * 0.2;
+	var offsetLeft = (currentSize - document.getElementById("bt-down").offsetWidth) / 2;
+
+	document.getElementById("bt-left").style.top = currentTop + offsetTop + "px";
+	document.getElementById("bt-right").style.top = currentTop + offsetTop + "px";
+	document.getElementById("bt-down").style.top = currentTop + offsetTop2 + "px";
+	document.getElementById("bt-down").style.left = currentLeft + offsetLeft + "px";
+/*
+	btHomeDown.setPosition( currentTop + offsetTop, currentLeft + offsetLeft);
+	btHomeLeft.setPosition( currentTop + offsetTop + offsetTop2, currentLeft + offsetLeft - (offsetLeft/2) );
+	btHomeRight.setPosition(currentTop + offsetTop + offsetTop2, currentLeft + offsetLeft + (offsetLeft/2) );
+*/
 }
 
 
 /* MY CLASSES */
+var PabrickUtils = {
+    isDebug: true,
+    showDebug: function(type, message){
+        if(this.isDebug && type === "error"){
+            console.error("✖ " + message);
+        }else if(this.isDebug){
+            console.log("✔ " + message);     
+        }
+    }
+};
+
 var BrowserDetect = {
 	init: function () {
 		this.browser = this.searchString(this.dataBrowser) || "Other";

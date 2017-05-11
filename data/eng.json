@@ -1,0 +1,14 @@
+﻿{
+    "bastaky": {
+        "home": {
+            "dev": "Desarrollador",
+            "vg": "Video juegos",
+            "per": "Personal"
+        },
+        "developer": {
+            "dev": "Desarrollador",
+            "vg": "Video juegos",
+            "per": "Personal"
+        }
+    }
+}
