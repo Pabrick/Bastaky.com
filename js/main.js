@@ -5,6 +5,7 @@ var arrayLanguajes = ["spa", "eng"];
 var currentLanguaje = arrayLanguajes[0];
 var homeSqUp, homeSqDown, homeSqLeft, homeSqRight;
 var btHomeDown, btHomeLeft, btHomeRight;
+var avatarDown, avatarLeft, avatarRight;
 var currentSection = "home";
 
 window.onload = function() {
@@ -38,9 +39,7 @@ window.mobilecheck = function() {
 })();
 
 window.onresize = function() {
-	if(currentSection === "home"){
-		placeHomeElements();
-	}	
+	placeHomeElements();
 }
 
 window.onscroll = function() {
@@ -57,13 +56,16 @@ function initWeb() {
 	btHomeLeft = new HomeSquare('bt-left');
 	btHomeRight = new HomeSquare('bt-right');
 
+	avatarDown = new HomeSquare('section-down-avatar');
+
 	document.getElementById("bt-down").onclick = function() { onClickHomeButton( event ) };
 	document.getElementById("bt-left").onclick = function() { onClickHomeButton( event ) };
 	document.getElementById("bt-right").onclick = function() { onClickHomeButton( event ) };
 
+	/* INIT SECTION POSITIONS */
 	document.getElementById("section-down").style.top = window.innerHeight + "px";
 	document.getElementById("section-left").style.left = -window.innerWidth + "px";
-	document.getElementById("section-right").style.left = -window.innerWidth + "px";
+	document.getElementById("section-right").style.left = window.innerWidth + "px";
 }
 
 function onClickHomeButton( event ) {
@@ -77,25 +79,47 @@ function loadWebSide(side) {
 	switch(side){
 		case "down":
 			currentSection = side;
-			var newTop = document.getElementById("home-sq-down").offsetHeight * 0.55;
+			document.getElementById("home").style.top = -window.innerHeight + "px";
+			document.getElementById("section-down").style.top = 0 + "px";
 			document.getElementById("bt-down").style.zIndex = 4; 
 			document.getElementById("bt-down").style.opacity = 0;
-			document.getElementById("home").style.top = -window.innerHeight + "px";
-			document.getElementById("home-sq-down").style.top = newTop + "px";
-			document.getElementById("section-down").style.top = 0 + "px";
+			
+			var newTop = document.getElementById("home-sq-down").offsetHeight * 0.45;
+			document.getElementById("home-sq-down").style.top = window.innerHeight - newTop + "px";	
 		break;
 		case "left":
 			currentSection = side;
-			var newTop = document.getElementById("home-sq-down").offsetHeight * 0.55;
+			document.getElementById("home").style.left = window.innerWidth + "px";
+			document.getElementById("section-left").style.left = 0 + "px";
+			document.getElementById("bt-left").style.zIndex = 4; 
 			document.getElementById("bt-left").style.opacity = 0;
-			document.getElementById("home").style.top = -window.innerHeight + "px";
-			document.getElementById("home-sq-down").style.top = newTop + "px";
-			document.getElementById("section-down").style.top = 0 + "px";
+			
+			//var newTop = document.getElementById("home-sq-down").offsetHeight * 0.45;
+			//document.getElementById("home-sq-down").style.top = window.innerHeight - newTop + "px";
+		break;
+		case "right":
+			currentSection = side;
+			document.getElementById("home").style.left = -window.innerWidth + "px";
+			document.getElementById("section-right").style.left = 0 + "px";
+			document.getElementById("bt-right").style.zIndex = 4; 
+			document.getElementById("bt-right").style.opacity = 0;
+			
+			//var newTop = document.getElementById("home-sq-down").offsetHeight * 0.45;
+			//document.getElementById("home-sq-down").style.top = window.innerHeight - newTop + "px";
 		break;
 	}
 	setInterval( function(){
-		document.body.style.overflow = "auto";
-		ChangeTransitionDurationOfHomeElements(0)
+		switch(side){
+			case "down":
+				document.getElementById("home").style.display = "none";
+				document.getElementById("section-down-avatar").style.opacity = 1;
+				ChangeTransitionDurationOfHomeElements(0);
+				document.body.style.overflow = "auto";
+			break;
+			case "left":
+			break;
+		}
+		
 	} , 2000 );
 }
 
@@ -110,6 +134,47 @@ function ChangeTransitionDurationOfHomeElements( sec ){
 	document.getElementById("bt-down").style.transitionDuration = sec + "s";
 	document.getElementById("bt-left").style.transitionDuration = sec + "s";
 	document.getElementById("bt-down").style.transitionDuration = sec + "s";
+}
+
+function TranslateSite( lan ) {
+	document.getElementById("bt-left").innerHTML = "Front-End";
+	document.getElementById("bt-right").innerHTML = "VideoJuegos";
+	document.getElementById("bt-down").innerHTML = "Personal";
+}
+
+function placeHomeElements() {
+	var currentSize, currentTop, currentLeft;
+	currentSize = Math.min(window.innerWidth, window.innerHeight);
+	
+	if(window.innerWidth < window.innerHeight){
+		currentTop = (window.innerHeight - window.innerWidth) / 2;
+		currentLeft = 0;
+	}else{
+		currentTop = 0;
+		currentLeft = (window.innerWidth - window.innerHeight) / 2;
+	}
+
+	homeSqUp.setSize(currentSize);
+	homeSqDown.setSize(currentSize);
+	homeSqLeft.setSize(currentSize);
+	homeSqRight.setSize(currentSize);
+
+	homeSqUp.setPosition(currentTop, currentLeft);
+	homeSqDown.setPosition(currentTop, currentLeft);
+	homeSqLeft.setPosition(currentTop, currentLeft);
+	homeSqRight.setPosition(currentTop, currentLeft);
+
+	var offsetTop = ((currentSize - document.getElementById("bt-left").offsetHeight ) / 2) + currentSize * 0.15;
+	var offsetTop2 = offsetTop + currentSize * 0.2;
+	var offsetLeft = (currentSize - document.getElementById("bt-down").offsetWidth) / 2;
+
+	document.getElementById("bt-left").style.top = currentTop + offsetTop + "px";
+	document.getElementById("bt-right").style.top = currentTop + offsetTop + "px";
+	document.getElementById("bt-down").style.top = currentTop + offsetTop2 + "px";
+	document.getElementById("bt-down").style.left = currentLeft + offsetLeft + "px";
+
+	avatarDown.setSize(currentSize * 0.426);
+	document.getElementById("section-down-header").style.height = currentSize * 0.426 * 0.55 + "px";
 }
 
 function RetrieveData(array, callback) {
@@ -148,45 +213,6 @@ function RetrieveData(array, callback) {
     });
 */
 }
-
-function TranslateSite( lan ) {
-	document.getElementById("bt-left").innerHTML = "Desarrollador";
-	document.getElementById("bt-right").innerHTML = "VideoJuegos";
-	document.getElementById("bt-down").innerHTML = "Personal";
-}
-
-function placeHomeElements() {
-	var currentSize, currentTop, currentLeft;
-	currentSize = Math.min(window.innerWidth, window.innerHeight);
-	
-	if(window.innerWidth < window.innerHeight){
-		currentTop = (window.innerHeight - window.innerWidth) / 2;
-		currentLeft = 0;
-	}else{
-		currentTop = 0;
-		currentLeft = (window.innerWidth - window.innerHeight) / 2;
-	}
-
-	homeSqUp.setSize(currentSize);
-	homeSqDown.setSize(currentSize);
-	homeSqLeft.setSize(currentSize);
-	homeSqRight.setSize(currentSize);
-
-	homeSqUp.setPosition(currentTop, currentLeft);
-	homeSqDown.setPosition(currentTop, currentLeft);
-	homeSqLeft.setPosition(currentTop, currentLeft);
-	homeSqRight.setPosition(currentTop, currentLeft);
-
-	var offsetTop = ((currentSize - document.getElementById("bt-left").offsetHeight ) / 2) + currentSize * 0.15;
-	var offsetTop2 = offsetTop + currentSize * 0.2;
-	var offsetLeft = (currentSize - document.getElementById("bt-down").offsetWidth) / 2;
-
-	document.getElementById("bt-left").style.top = currentTop + offsetTop + "px";
-	document.getElementById("bt-right").style.top = currentTop + offsetTop + "px";
-	document.getElementById("bt-down").style.top = currentTop + offsetTop2 + "px";
-	document.getElementById("bt-down").style.left = currentLeft + offsetLeft + "px";
-}
-
 
 /* MY CLASSES */
 var PabrickUtils = {
@@ -248,5 +274,8 @@ function HomeSquare(id) {
 	this.setPosition = function (top, left) {
 		document.getElementById(id).style.top = top + "px";
 		document.getElementById(id).style.left = left + "px";
+	}
+	this.setProperty = function (property, value) {
+		document.getElementById(id).style[property] = value + "px";
 	}
 }
