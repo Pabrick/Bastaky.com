@@ -118,7 +118,6 @@ li {
 .clearfix {
   *zoom: 1; }
 
-/* GLOBAL VARIABLES */
 html {
   font-size: 1em;
   height: 100%;
@@ -215,9 +214,14 @@ h1 {
 #social a:hover {
   color: #CC3333; }
 
-#home {
+.section, #section-home, #section-right, #section-down, #section-left {
   -webkit-transition: all 0s;
   transition: all 0s;
+  height: 100%;
+  width: 100%;
+  position: absolute; }
+
+#section-home {
   background-image: url("../img/bastaky_logo_fondo.png");
   background-size: cover;
   background-position: center;
@@ -229,25 +233,27 @@ h1 {
   height: 100%;
   max-height: 906px; }
 
-.home-sq, #home-sq-up, #home-sq-left, #home-sq-right, #home-sq-down {
+.home-sq, #section-home-up, #section-home-left, #section-home-right, #section-home-down {
   -webkit-transition: all 0s;
   transition: all 0s;
   background-size: 100%;
   margin: 0 auto;
   position: absolute;
   top: 0px;
+  height: 0px;
+  width: 0px;
   z-index: 5; }
 
-#home-sq-up {
+#section-home-up {
   background-image: url("../img/bastaky_logo_up.png"); }
 
-#home-sq-left {
+#section-home-left {
   background-image: url("../img/bastaky_logo_left.png"); }
 
-#home-sq-right {
+#section-home-right {
   background-image: url("../img/bastaky_logo_right.png"); }
 
-#home-sq-down {
+#section-home-down {
   background-image: url("../img/bastaky_logo_down.png"); }
 
 .home-button, #bt-left, #bt-right, #bt-down {
@@ -289,22 +295,27 @@ h1 {
   padding-bottom: 20px;
   bottom: 10%; }
 
-.section, #section-left, #section-right, #section-down {
-  -webkit-transition: all 2s;
-  transition: all 2s;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  /*z-index: 9 */ }
+@-moz-document url-prefix();
+@media only screen and (min-width: 768px) {
+  .home-button, #bt-left, #bt-right, #bt-down {
+    background-size: 32px 32px;
+    font-size: 36px;
+    height: 32px;
+    width: 130px; }
 
-#section-left {
-  background-color: #588E3E; }
+  #bt-left {
+    padding-left: 30px;
+    left: 10%; }
 
+  #bt-right {
+    padding-right: 30px;
+    right: 10%; }
+
+  #bt-down {
+    padding-bottom: 30px;
+    bottom: 10%; } }
 #section-right {
   background-color: #FDD23B; }
-
-#section-down {
-  background-color: #FFFFFF; }
 
 .section-content {
   background-color: #FFFFFF;
@@ -313,6 +324,9 @@ h1 {
   margin-top: 180px; }
 
 /* SECTION DOWN */
+#section-down {
+  background-color: #FFFFFF; }
+
 #section-down-header {
   background-color: #94ABD7;
   width: 100%;
@@ -329,6 +343,23 @@ h1 {
   margin: 0 auto;
   position: relative;
   opacity: 0; }
+
+/* SECTION LEFT */
+#section-left {
+  background-color: #FFFFFF;
+  font-family: "Arial" !important; }
+
+#section-left h2 {
+  font-family: "Arial" !important;
+  font-size: 5vw;
+  text-transform: uppercase;
+  padding: 20px; }
+
+#section-left-column {
+  background-color: #588E3E;
+  float: right;
+  height: 100%;
+  width: 100px; }
 
 @-moz-document url-prefix();
 @media only screen and (min-width: 768px) {

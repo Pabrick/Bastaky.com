@@ -1,28 +1,7 @@
 @import 'fonts'
 @import 'initialize'
 
-/* GLOBAL VARIABLES */
-$font-bastaky: 'tall_dark_and_handsomeCn'
-$font-icon: 'icons'
-$color-black: #222222
-$color-white: #FFFFFF
-$color-red: #CC3333
-$color-blue: #94ABD7
-$color-green: #588E3E
-$color-yellow: #FDD23B
-$home-button-arrow-padding: 20px
-
-@mixin transition-all($seconds)
-  -webkit-transition: all $seconds
-  transition: all $seconds
-
-@mixin transform-rotate($grades)
-  -webkit-transform: rotate($grades)
-  -moz-transform: rotate($grades)
-  -ms-transform: rotate($grades)
-  -o-transform: rotate($grades)
-  transform: rotate($grades)
-
+@import 'globals'
 
 html
   font-size: 1em
@@ -120,104 +99,17 @@ h1
 #social a:hover
   color: $color-red
 
-#home
-  @include transition-all(0s)
-  background-image: url('../img/bastaky_logo_fondo.png')
-  background-size: cover
-  background-position: center
-  display: block
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  max-height: 906px
-
-.home-sq
-  @include transition-all(0s)
-  background-size: 100%
-  margin: 0 auto
-  position: absolute
-  top: 0px
-  z-index: 5
-  
-
-#home-sq-up
-  @extend .home-sq
-  background-image: url('../img/bastaky_logo_up.png')
-
-#home-sq-left
-  @extend .home-sq
-  background-image: url('../img/bastaky_logo_left.png')
-
-#home-sq-right
-  @extend .home-sq
-  background-image: url('../img/bastaky_logo_right.png')
-
-#home-sq-down
-  @extend .home-sq
-  background-image: url('../img/bastaky_logo_down.png')
-
-.home-button
-  @include transition-all(0s)
-  background-repeat: no-repeat 
-  background-size: 20px 20px
-  color: $color-white
-  font-weight: 200
-  cursor: pointer
-  font-family: $font-bastaky
-  text-shadow: 2px 2px 2px $color-black
-  letter-spacing: 2px
-  font-size: 22px
-  height: 20px
-  width: 130px
-  position: absolute
-  margin: 0 auto
-  z-index: 9
-
-#bt-left
-  @extend .home-button
-  background-image: url('../img/arrow_left.png')
-  background-position: left
-  text-align: left
-  padding-left: $home-button-arrow-padding
-  left: 10%
-
-#bt-right
-  @extend .home-button
-  background-image: url('../img/arrow_right.png')
-  background-position: right
-  text-align: right
-  padding-right: $home-button-arrow-padding
-  right: 10%
-
-#bt-down
-  @extend .home-button
-  background-image: url('../img/arrow_down.png')
-  background-position: bottom
-  text-align: center
-  padding-bottom: $home-button-arrow-padding
-  bottom: 10%
-
 .section
-  @include transition-all(2s)
+  @include transition-all(0s)
   height: 100%
   width: 100%
   position: absolute
-  /*z-index: 9*/
 
-#section-left
-  @extend .section
-  background-color: $color-green
-
+@import 'section_home'
 
 #section-right
   @extend .section
   background-color: $color-yellow
-
-#section-down
-  @extend .section
-  background-color: $color-white
 
 .section-content
   background-color: $color-white
@@ -226,6 +118,10 @@ h1
   margin-top: 180px
 
 /* SECTION DOWN */
+#section-down
+  @extend .section
+  background-color: $color-white
+
 #section-down-header
   background-color: $color-blue
   width: 100%
@@ -241,6 +137,24 @@ h1
   margin: 0 auto
   position: relative
   opacity: 0
+
+/* SECTION LEFT */
+#section-left
+  @extend .section
+  background-color: $color-white
+  font-family: 'Arial' !important
+
+#section-left h2
+  font-family: 'Arial' !important
+  font-size: 5vw
+  text-transform: uppercase
+  padding: 20px
+
+#section-left-column
+  background-color: $color-green
+  float: right
+  height: 100%
+  width: 100px
 
 @media screen and (-webkit-min-device-pixel-ratio:0)
 @-moz-document url-prefix()

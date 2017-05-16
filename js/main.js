@@ -3,10 +3,14 @@
 var isDeviceMobile;
 var arrayLanguajes = ["spa", "eng"];
 var currentLanguaje = arrayLanguajes[0];
+
+var sectionHome,sectionDown,sectionLeft,sectionRight; 
 var homeSqUp, homeSqDown, homeSqLeft, homeSqRight;
+
 var btHomeDown, btHomeLeft, btHomeRight;
 var avatarDown, avatarLeft, avatarRight;
 var currentSection = "home";
+var homeSquareMaxSize = 906;
 
 window.onload = function() {
     BrowserDetect.init();
@@ -39,7 +43,22 @@ window.mobilecheck = function() {
 })();
 
 window.onresize = function() {
-	placeHomeElements();
+	switch(currentSection){
+		case "home":
+			document.getElementById("section-down").style.top = window.innerHeight + "px";
+			document.getElementById("section-left").style.left = -window.innerWidth + "px";
+			document.getElementById("section-right").style.left = window.innerWidth + "px";
+		break;
+		case "left":
+			document.getElementById("section-down").style.top = window.innerHeight + "px";
+			document.getElementById("section-right").style.left = window.innerWidth + "px";
+		break;
+		case "right":
+			document.getElementById("section-down").style.top = window.innerHeight + "px";
+			document.getElementById("section-left").style.left = -window.innerWidth + "px";
+		break;
+	}
+	setHomeElements();
 }
 
 window.onscroll = function() {
@@ -47,10 +66,11 @@ window.onscroll = function() {
 
 function initWeb() {
 	TranslateSite( currentLanguaje );
-	homeSqUp = new HomeSquare('home-sq-up');
-	homeSqDown = new HomeSquare('home-sq-down');
-	homeSqLeft = new HomeSquare('home-sq-left');
-	homeSqRight = new HomeSquare('home-sq-right');
+
+	homeSqUp = new HomeSquare('section-home-up');
+	homeSqDown = new HomeSquare('section-home-down');
+	homeSqLeft = new HomeSquare('section-home-left');
+	homeSqRight = new HomeSquare('section-home-right');
 
 	btHomeDown = new HomeSquare('bt-down');
 	btHomeLeft = new HomeSquare('bt-left');
@@ -58,38 +78,48 @@ function initWeb() {
 
 	avatarDown = new HomeSquare('section-down-avatar');
 
-	document.getElementById("bt-down").onclick = function() { onClickHomeButton( event ) };
-	document.getElementById("bt-left").onclick = function() { onClickHomeButton( event ) };
-	document.getElementById("bt-right").onclick = function() { onClickHomeButton( event ) };
+	sectionHome = new Section('section-home', 0, 0);
+	sectionDown = new Section('section-home', window.innerHeight, 0);
+	sectionLeft = new Section('section-home', 0, -window.innerWidth);
+	sectionRight = new Section('section-home', 0, window.innerWidth);
 
 	/* INIT SECTION POSITIONS */
 	document.getElementById("section-down").style.top = window.innerHeight + "px";
-	document.getElementById("section-left").style.left = -window.innerWidth + "px";
+	document.getElementById("section-left").style.left = + "px";
 	document.getElementById("section-right").style.left = window.innerWidth + "px";
+
+	/* INIT Section */
+	/*
+	document.getElementById("section-left").style.left = 0 + "px";
+	document.getElementById("section-home").style.display = "none";
+	*/
+	document.getElementById("bt-down").onclick = function() { onClickHomeButton( event ) };
+	document.getElementById("bt-left").onclick = function() { onClickHomeButton( event ) };
+	document.getElementById("bt-right").onclick = function() { onClickHomeButton( event ) };
 }
 
 function onClickHomeButton( event ) {
 	event.preventDefault(); //jQuery
 	var dir = event.target.id.substr(3);
-	ChangeTransitionDurationOfHomeElements(1);
-	loadWebSide(dir);
+	ChangeTransitionDuration(1);
+	loadSection(dir);
 }
 
-function loadWebSide(side) {
-	switch(side){
+function loadSection( section ) {
+	switch(section){
 		case "down":
-			currentSection = side;
-			document.getElementById("home").style.top = -window.innerHeight + "px";
+			currentSection = section;
+			document.getElementById("section-home").style.top = -window.innerHeight + "px";
 			document.getElementById("section-down").style.top = 0 + "px";
 			document.getElementById("bt-down").style.zIndex = 4; 
 			document.getElementById("bt-down").style.opacity = 0;
 			
-			var newTop = document.getElementById("home-sq-down").offsetHeight * 0.45;
-			document.getElementById("home-sq-down").style.top = window.innerHeight - newTop + "px";	
+			var newTop = document.getElementById("section-home-down").offsetHeight * 0.45;
+			document.getElementById("section-home-down").style.top = window.innerHeight - newTop + "px";	
 		break;
 		case "left":
-			currentSection = side;
-			document.getElementById("home").style.left = window.innerWidth + "px";
+			currentSection = section;
+			document.getElementById("section-home").style.left = window.innerWidth + "px";
 			document.getElementById("section-left").style.left = 0 + "px";
 			document.getElementById("bt-left").style.zIndex = 4; 
 			document.getElementById("bt-left").style.opacity = 0;
@@ -98,8 +128,8 @@ function loadWebSide(side) {
 			//document.getElementById("home-sq-down").style.top = window.innerHeight - newTop + "px";
 		break;
 		case "right":
-			currentSection = side;
-			document.getElementById("home").style.left = -window.innerWidth + "px";
+			currentSection = section;
+			document.getElementById("section-home").style.left = -window.innerWidth + "px";
 			document.getElementById("section-right").style.left = 0 + "px";
 			document.getElementById("bt-right").style.zIndex = 4; 
 			document.getElementById("bt-right").style.opacity = 0;
@@ -109,31 +139,37 @@ function loadWebSide(side) {
 		break;
 	}
 	setInterval( function(){
-		switch(side){
+		switch(section){
 			case "down":
-				document.getElementById("home").style.display = "none";
+				document.getElementById("section-home").style.display = "none";
 				document.getElementById("section-down-avatar").style.opacity = 1;
-				ChangeTransitionDurationOfHomeElements(0);
+				ChangeTransitionDuration(0);
 				document.body.style.overflow = "auto";
 			break;
 			case "left":
+			break;
+			case "right":
 			break;
 		}
 		
 	} , 2000 );
 }
 
-function ChangeTransitionDurationOfHomeElements( sec ){
-	document.getElementById("home").style.transitionDuration = sec * 2 + "s";
+function ChangeTransitionDuration( sec ){
+	document.getElementById("section-home").style.transitionDuration = sec * 2 + "s";
 
-	document.getElementById("home-sq-up").style.transitionDuration = sec * 2 + "s";
-	document.getElementById("home-sq-down").style.transitionDuration = sec * 2 + "s";
-	document.getElementById("home-sq-left").style.transitionDuration = sec * 2 + "s";
-	document.getElementById("home-sq-down").style.transitionDuration = sec * 2 + "s";
+	document.getElementById("section-home-up").style.transitionDuration = sec * 2 + "s";
+	document.getElementById("section-home-down").style.transitionDuration = sec * 2 + "s";
+	document.getElementById("section-home-left").style.transitionDuration = sec * 2 + "s";
+	document.getElementById("section-home-down").style.transitionDuration = sec * 2 + "s";
 
 	document.getElementById("bt-down").style.transitionDuration = sec + "s";
 	document.getElementById("bt-left").style.transitionDuration = sec + "s";
 	document.getElementById("bt-down").style.transitionDuration = sec + "s";
+
+	document.getElementById("section-down").style.transitionDuration = sec * 2 + "s";
+	document.getElementById("section-left").style.transitionDuration = sec * 2 + "s";
+	document.getElementById("section-right").style.transitionDuration = sec * 2 + "s";
 }
 
 function TranslateSite( lan ) {
@@ -142,7 +178,7 @@ function TranslateSite( lan ) {
 	document.getElementById("bt-down").innerHTML = "Personal";
 }
 
-function placeHomeElements() {
+function setHomeElements() {
 	var currentSize, currentTop, currentLeft;
 	currentSize = Math.min(window.innerWidth, window.innerHeight);
 	
@@ -175,43 +211,6 @@ function placeHomeElements() {
 
 	avatarDown.setSize(currentSize * 0.426);
 	document.getElementById("section-down-header").style.height = currentSize * 0.426 * 0.55 + "px";
-}
-
-function RetrieveData(array, callback) {
-	//this.array = array;
-	var languaje = array.shift();
-	var urlData = "data/" + languaje + ".json";
-	initWeb();
-/*
-	var request = new XMLHttpRequest();
-		request.open('GET', urlData, true);
-		request.onload = function() {
-			if (request.status >= 200 && request.status < 400) {
-				PabrickUtils.showDebug("log", "Languaje loaded: " + languaje);
-				var data = JSON.parse(request.responseText);
-				console.log(data);
-			} else {
-				PabrickUtils.showDebug("error", "Languaje NOT loaded: " + languaje + " - We reached our target server, but it returned an error");
-			}
-		};
-		request.onerror = function() {};
-		request.send();
-*/
-/*
-	$.getJSON(urlData, function(data) {
-		$.each(data, function(i, pack) {
-			arrayLanguajes[i] = pack;
-		});
-	}).then(function(data){
-		PabrickUtils.showDebug("log", "Languaje loaded: " + languaje);
-		if(array.length === 0){
-			callback();
-		}else{
-			RetrieveData(array, callback); 
-		}
-		initWeb();
-    });
-*/
 }
 
 /* MY CLASSES */
@@ -262,20 +261,108 @@ var BrowserDetect = {
 	]
 };
 
-function HomeSquare(id) {
-	this.id = id;
-    this.setSize = function(size) {
-		if(size > 906 ){
-			size = 906;
-		}
-		document.getElementById(id).style.height = size + "px";
-		document.getElementById(id).style.width = size + "px";
-	};
-	this.setPosition = function (top, left) {
+function Section( section, initTop, initLeft ) {
+	this.id = "section-" + section;
+	this.initTop = initTop;
+	this.initLeft = initLeft;
+    this.setIn = function() {
+		document.getElementById(id).style.top = 0 + "px";
+		document.getElementById(id).style.left = 0 + "px";
+		document.getElementById("bt-" + section).style.zIndex = 4; 
+		document.getElementById("bt-" + section).style.opacity = 0;
+	}
+	this.setOut = function() {
+		document.getElementById(id).style.top = initTop + "px";
+		document.getElementById(id).style.left = initLeft + "px";
+		document.getElementById("bt-" + section).style.zIndex = 9; 
+		document.getElementById("bt-" + section).style.opacity = 1;
+	}
+	this.setTop = function( top ) {
 		document.getElementById(id).style.top = top + "px";
+	}
+	this.setLeft = function( left ) {
 		document.getElementById(id).style.left = left + "px";
 	}
-	this.setProperty = function (property, value) {
+}
+
+function DomElem(id){
+	this.id = id;
+}
+DomElem.prototype = {
+	id : null,
+	setTop : function( top ){
+		document.getElementById(this.id).style.top = top + "px";
+	},
+	setLeft : function( left ){
+		document.getElementById(this.id).style.left = left + "px";
+	},
+	setHeight : function( height ){
+		document.getElementById(this.id).style.height = height + "px";
+	},
+	setWidth : function( width ){
+		document.getElementById(this.id).style.width = width + "px";
+	},
+	setProperty : function ( property, value ) {
 		document.getElementById(id).style[property] = value + "px";
+	},
+	setPosition : function (top, left){
+		this.setTop( top );
+		this.setLeft( left );
+	},
+	setSize : function (height, width){
+		this.setHeight( height );
+		this.setWidth( width );
 	}
+}
+function HomeSquare(id){
+	DomElem.call(this, id);
+}
+HomeSquare.prototype = Object.create(DomElem.prototype, {
+	setSize : {
+		value: function(){
+			if(arguments[0] > homeSquareMaxSize ){
+				arguments[0] = homeSquareMaxSize;
+			} //console.log(arguments);
+			DomElem.prototype.setSize.apply(this, [arguments[0], arguments[0]] );
+		}
+	}
+});
+//HomeSquare.prototype.constructor = HomeSquare;
+
+
+function RetrieveData(array, callback) {
+	//this.array = array;
+	var languaje = array.shift();
+	var urlData = "data/" + languaje + ".json";
+	initWeb();
+/*
+	var request = new XMLHttpRequest();
+		request.open('GET', urlData, true);
+		request.onload = function() {
+			if (request.status >= 200 && request.status < 400) {
+				PabrickUtils.showDebug("log", "Languaje loaded: " + languaje);
+				var data = JSON.parse(request.responseText);
+				console.log(data);
+			} else {
+				PabrickUtils.showDebug("error", "Languaje NOT loaded: " + languaje + " - We reached our target server, but it returned an error");
+			}
+		};
+		request.onerror = function() {};
+		request.send();
+*/
+/*
+	$.getJSON(urlData, function(data) {
+		$.each(data, function(i, pack) {
+			arrayLanguajes[i] = pack;
+		});
+	}).then(function(data){
+		PabrickUtils.showDebug("log", "Languaje loaded: " + languaje);
+		if(array.length === 0){
+			callback();
+		}else{
+			RetrieveData(array, callback); 
+		}
+		initWeb();
+    });
+*/
 }
