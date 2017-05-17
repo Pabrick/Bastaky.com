@@ -1,5 +1,6 @@
 'use strict';
 
+var utils;
 var isDeviceMobile;
 var arrayLanguajes = ["spa", "eng"];
 var currentLanguaje = arrayLanguajes[0];
@@ -13,11 +14,13 @@ var currentSection = "home";
 var homeSquareMaxSize = 906;
 
 window.onload = function() {
+	utils = new PabrickUtils();
+	utils.setDebug(true);
     BrowserDetect.init();
 	isDeviceMobile = window.mobilecheck();
 
-	PabrickUtils.showDebug("log", "BrowserDetect.browser - " + BrowserDetect.browser);
-	PabrickUtils.showDebug("log", "MobileDevide = " + isDeviceMobile);
+	utils.showDebug("log", "BrowserDetect.browser - " + BrowserDetect.browser);
+	utils.showDebug("log", "MobileDevide = " + isDeviceMobile);
 
 	RetrieveData( arrayLanguajes, initWeb );
     window.onresize();
@@ -214,53 +217,6 @@ function setHomeElements() {
 }
 
 /* MY CLASSES */
-var PabrickUtils = {
-    isDebug: true,
-    showDebug: function(type, message){
-        if(this.isDebug && type === "error"){
-            console.error("✖ " + message);
-        }else if(this.isDebug){
-            console.log("✔ " + message);     
-        }
-    }
-};
-
-var BrowserDetect = {
-	init: function () {
-		this.browser = this.searchString(this.dataBrowser) || "Other";
-		this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "Unknown";
-	},
-	searchString: function (data) {
-		for (var i = 0; i < data.length; i++) {
-			var dataString = data[i].string;
-			this.versionSearchString = data[i].subString;
-			if (dataString.indexOf(data[i].subString) !== -1) {
-				return data[i].identity;
-			}
-		}
-	},
-	searchVersion: function (dataString) {
-		var index = dataString.indexOf(this.versionSearchString);
-		if (index === -1) {
-			return;
-		}
-		var rv = dataString.indexOf("rv:");
-		if (this.versionSearchString === "Trident" && rv !== -1) {
-			return parseFloat(dataString.substring(rv + 3));
-		} else {
-			return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
-		}
-	},
-	dataBrowser: [
-		{string: navigator.userAgent, subString: "Chrome", identity: "Chrome"},
-		{string: navigator.userAgent, subString: "MSIE", identity: "Explorer"},
-		{string: navigator.userAgent, subString: "Trident", identity: "Explorer"},
-		{string: navigator.userAgent, subString: "Firefox", identity: "Firefox"},
-		{string: navigator.userAgent, subString: "Safari", identity: "Safari"},
-		{string: navigator.userAgent, subString: "Opera", identity: "Opera"}
-	]
-};
-
 function Section( section, initTop, initLeft ) {
 	this.id = "section-" + section;
 	this.initTop = initTop;
@@ -285,35 +241,6 @@ function Section( section, initTop, initLeft ) {
 	}
 }
 
-function DomElem(id){
-	this.id = id;
-}
-DomElem.prototype = {
-	id : null,
-	setTop : function( top ){
-		document.getElementById(this.id).style.top = top + "px";
-	},
-	setLeft : function( left ){
-		document.getElementById(this.id).style.left = left + "px";
-	},
-	setHeight : function( height ){
-		document.getElementById(this.id).style.height = height + "px";
-	},
-	setWidth : function( width ){
-		document.getElementById(this.id).style.width = width + "px";
-	},
-	setProperty : function ( property, value ) {
-		document.getElementById(id).style[property] = value + "px";
-	},
-	setPosition : function (top, left){
-		this.setTop( top );
-		this.setLeft( left );
-	},
-	setSize : function (height, width){
-		this.setHeight( height );
-		this.setWidth( width );
-	}
-}
 function HomeSquare(id){
 	DomElem.call(this, id);
 }
@@ -322,8 +249,11 @@ HomeSquare.prototype = Object.create(DomElem.prototype, {
 		value: function(){
 			if(arguments[0] > homeSquareMaxSize ){
 				arguments[0] = homeSquareMaxSize;
-			} //console.log(arguments);
-			DomElem.prototype.setSize.apply(this, [arguments[0], arguments[0]] );
+			}
+			var thisArguments = Array.prototype.slice.call(arguments);
+				thisArguments.push(arguments[0]);
+			console.log(thisArguments);
+			DomElem.prototype.setSize.apply(this, thisArguments);
 		}
 	}
 });
@@ -340,11 +270,11 @@ function RetrieveData(array, callback) {
 		request.open('GET', urlData, true);
 		request.onload = function() {
 			if (request.status >= 200 && request.status < 400) {
-				PabrickUtils.showDebug("log", "Languaje loaded: " + languaje);
+				utils.showDebug("log", "Languaje loaded: " + languaje);
 				var data = JSON.parse(request.responseText);
 				console.log(data);
 			} else {
-				PabrickUtils.showDebug("error", "Languaje NOT loaded: " + languaje + " - We reached our target server, but it returned an error");
+				utils.showDebug("error", "Languaje NOT loaded: " + languaje + " - We reached our target server, but it returned an error");
 			}
 		};
 		request.onerror = function() {};
@@ -356,7 +286,7 @@ function RetrieveData(array, callback) {
 			arrayLanguajes[i] = pack;
 		});
 	}).then(function(data){
-		PabrickUtils.showDebug("log", "Languaje loaded: " + languaje);
+		utils.showDebug("log", "Languaje loaded: " + languaje);
 		if(array.length === 0){
 			callback();
 		}else{

@@ -50,8 +50,8 @@ h1
 
 #social
   @extend .footer-block
-  overflow: hidden
   right: 10px
+  top: -44px
 
 #languajes
   @extend .footer-block
@@ -157,7 +157,11 @@ h1
   width: 100px
 
 @media screen and (-webkit-min-device-pixel-ratio:0)
+  #social
+    top: 0px
 @-moz-document url-prefix()
+  #social
+    top: -44px
 
 @media only screen and (min-width : 768px)
   $home-button-arrow-padding: 30px
