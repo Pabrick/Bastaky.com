@@ -1,0 +1,89 @@
+@import 'fonts'
+@import 'globals'
+
+footer
+  background-color: $color-black
+  height: 50px
+  width: 100%
+  position: fixed
+  bottom: 0
+  z-index: 10
+  display: table
+
+.footer-block
+  height: 32px
+  padding-top: 2px
+  position: absolute
+  top: 0
+  bottom: 0
+  margin: auto
+
+#languajes
+  @extend .footer-block
+  left: 10px
+  display: block
+
+#languajes ul 
+  display: block
+
+#languajes li
+  display: inline-block
+  margin-right: 4px
+
+#languajes button
+  background-size: 100% 100%
+  cursor: pointer
+  height: 30px
+  width: 30px
+  
+
+#languajes button
+  border: 1px solid $color-black
+
+#languajes button:hover
+  border: 1px solid $color-white
+
+#languajes-spa
+  background-image: url('../img/flag_spa.png')
+
+#languajes-eng
+  background-image: url('../img/flag_eng.png')
+
+#social
+  @extend .footer-block
+  color: $color-white
+  display: block
+  font-family: $font-bastaky
+  font-size: 30px
+  right: 10px
+  top: -44px
+
+#social ul
+  display: inline-block
+
+#social li
+  display: inline-block
+
+#social h4
+  display: inline-block
+
+#social h4 span
+  font-size: 20px
+
+#social a
+  color: $color-white
+  font-family: $font-icon
+  font-size: 32px
+  text-decoration: none
+
+#social a:hover
+  color: $color-red
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+  #social
+    top: 8px
+@-moz-document url-prefix()
+  #social
+    top: -44px
+
+@media only screen and (min-width : 768px)

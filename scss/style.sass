@@ -2,6 +2,7 @@
 @import 'initialize'
 
 @import 'globals'
+@import 'footer'
 
 html
   font-size: 1em
@@ -30,74 +31,6 @@ h1
   -webkit-box-shadow: 0px 10px 30px 0px rgba(0,0,0,.75)
   -moz-box-shadow: 0px 10px 30px 0px rgba(0,0,0,.75)
   box-shadow: 0px 10px 30px 0px rgba(0,0,0,.75)
-
-#footer
-  background-color: $color-black
-  height: 50px
-  width: 100%
-  position: fixed
-  bottom: 0
-  z-index: 10
-  display: table
-
-.footer-block
-  height: 32px
-  padding-top: 2px
-  position: absolute
-  top: 0
-  bottom: 0
-  margin: auto
-
-#social
-  @extend .footer-block
-  right: 10px
-  top: -44px
-
-#languajes
-  @extend .footer-block
-  left: 10px
-  display: block
-
-.languajes-bt
-  height: 30px
-  width: 30px
-  margin-right: 4px
-  display: inline-block
-  cursor: pointer
-
-#languajes a
-  border: 1px solid $color-black
-
-#languajes a:hover
-  border: 1px solid $color-white
-
-#languajes-spa
-  @extend .languajes-bt
-  background-image: url('../img/flag_spa.png')
-
-#languajes-eng
-  @extend .languajes-bt
-  background-image: url('../img/flag_eng.png')
-
-#social p
-  color: $color-white
-  font-family: $font-bastaky
-  font-size: 30px
-  margin-right: 3px
-  display: inline-block
-
-#social p span
-  font-size: 20px
-
-#social a
-  color: $color-white
-  font-family: $font-icon
-  font-size: 32px
-  text-decoration: none
-  margin-right: 3px
-
-#social a:hover
-  color: $color-red
 
 .section
   @include transition-all(0s)
@@ -157,11 +90,8 @@ h1
   width: 100px
 
 @media screen and (-webkit-min-device-pixel-ratio:0)
-  #social
-    top: 0px
+
 @-moz-document url-prefix()
-  #social
-    top: -44px
 
 @media only screen and (min-width : 768px)
   $home-button-arrow-padding: 30px
