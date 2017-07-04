@@ -1,0 +1,48 @@
+@import 'fonts'
+@import 'globals'
+
+#loading
+  background-color: $color-grey
+
+#loading .wrapper
+  display: table
+  height: 100%
+  width: 100%
+
+#loading hgroup
+  display: table-cell
+  vertical-align: middle
+
+#loading h1,
+#loading h2
+  display: table
+  color: $color-white
+  margin: 0 auto
+  text-align: center
+  white-space: nowrap
+
+#loading h1
+  font-size: 13vw
+
+#loading h1 span
+  margin: 0 -10px
+  @include transition-all(.5s)
+
+#loading h2
+  font-size: 10vw
+  opacity: 0.5
+  animation: ANIM-GLOW 10s infinite
+
+.loading-off
+  opacity: 0.2
+
+.loading-on
+  opacity: 1
+  
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+    
+@-moz-document url-prefix()
+
+@media only screen and (min-width : 768px)

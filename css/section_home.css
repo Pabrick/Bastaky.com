@@ -11,8 +11,10 @@
   max-height: 906px; }
 
 .home-sq, #section-home-up, #section-home-left, #section-home-right, #section-home-down {
-  -webkit-transition: all 0s;
-  transition: all 0s;
+  -webkit-transition: all 0s ease-in;
+  -moz-transition: all 0s ease-in;
+  -o-transition: all 0s ease-in;
+  transition: all 0s ease-in;
   background-size: 100%;
   margin: 0 auto;
   position: absolute;
@@ -34,14 +36,16 @@
   background-image: url("../img/bastaky_logo_down.png"); }
 
 .home-button, #bt-left, #bt-right, #bt-down {
-  -webkit-transition: all 0s;
-  transition: all 0s;
+  -webkit-transition: all 0s ease-in;
+  -moz-transition: all 0s ease-in;
+  -o-transition: all 0s ease-in;
+  transition: all 0s ease-in;
   background-repeat: no-repeat;
   background-size: 20px 20px;
   color: #FFFFFF;
   font-weight: 200;
   cursor: pointer;
-  font-family: "tall_dark_and_handsomeCn";
+  font-family: "lemonmilk";
   text-shadow: 2px 2px 2px #222222;
   letter-spacing: 2px;
   font-size: 22px;

@@ -51,12 +51,9 @@ footer
 
 #social
   @extend .footer-block
-  color: $color-white
+  color: $color-grey
   display: block
-  font-family: $font-bastaky
-  font-size: 30px
   right: 10px
-  top: -44px
 
 #social ul
   display: inline-block
@@ -65,25 +62,28 @@ footer
   display: inline-block
 
 #social h4
-  display: inline-block
+  display: none
+  font-size: 39px
+  font-family: $font-bastaky_light
 
 #social h4 span
-  font-size: 20px
+  font-size: 29px
 
 #social a
-  color: $color-white
+  @include transition-all(0.5s)
+  color: $color-grey
   font-family: $font-icon
   font-size: 32px
   text-decoration: none
 
 #social a:hover
-  color: $color-red
+  color: $color-white
+  margin: 0 5px
 
 @media screen and (-webkit-min-device-pixel-ratio:0)
-  #social
-    top: 8px
+    
 @-moz-document url-prefix()
-  #social
-    top: -44px
 
 @media only screen and (min-width : 768px)
+  #social h4
+    display: inline-block

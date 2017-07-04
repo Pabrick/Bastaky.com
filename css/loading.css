@@ -40,88 +40,47 @@
   src: url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
-footer {
-  background-color: #222222;
-  height: 50px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  z-index: 10;
-  display: table; }
+#loading {
+  background-color: #666666; }
 
-.footer-block, #languajes, #social {
-  height: 32px;
-  padding-top: 2px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto; }
+#loading .wrapper {
+  display: table;
+  height: 100%;
+  width: 100%; }
 
-#languajes {
-  left: 10px;
-  display: block; }
+#loading hgroup {
+  display: table-cell;
+  vertical-align: middle; }
 
-#languajes ul {
-  display: block; }
+#loading h1,
+#loading h2 {
+  display: table;
+  color: #FFFFFF;
+  margin: 0 auto;
+  text-align: center;
+  white-space: nowrap; }
 
-#languajes li {
-  display: inline-block;
-  margin-right: 4px; }
+#loading h1 {
+  font-size: 13vw; }
 
-#languajes button {
-  background-size: 100% 100%;
-  cursor: pointer;
-  height: 30px;
-  width: 30px; }
-
-#languajes button {
-  border: 1px solid #222222; }
-
-#languajes button:hover {
-  border: 1px solid #FFFFFF; }
-
-#languajes-spa {
-  background-image: url("../img/flag_spa.png"); }
-
-#languajes-eng {
-  background-image: url("../img/flag_eng.png"); }
-
-#social {
-  color: #666666;
-  display: block;
-  right: 10px; }
-
-#social ul {
-  display: inline-block; }
-
-#social li {
-  display: inline-block; }
-
-#social h4 {
-  display: none;
-  font-size: 39px;
-  font-family: "lemonmilklight"; }
-
-#social h4 span {
-  font-size: 29px; }
-
-#social a {
+#loading h1 span {
+  margin: 0 -10px;
   -webkit-transition: all 0.5s ease-in;
   -moz-transition: all 0.5s ease-in;
   -o-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
-  color: #666666;
-  font-family: "icons";
-  font-size: 32px;
-  text-decoration: none; }
+  transition: all 0.5s ease-in; }
 
-#social a:hover {
-  color: #FFFFFF;
-  margin: 0 5px; }
+#loading h2 {
+  font-size: 10vw;
+  opacity: 0.5;
+  animation: ANIM-GLOW 10s infinite; }
+
+.loading-off {
+  opacity: 0.2; }
+
+.loading-on {
+  opacity: 1; }
 
 @-moz-document url-prefix();
-@media only screen and (min-width: 768px) {
-  #social h4 {
-    display: inline-block; } }
 
-/*# sourceMappingURL=footer.css.map */
+/*# sourceMappingURL=loading.css.map */

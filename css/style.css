@@ -10,6 +10,36 @@
   src: url("../fonts/icons/aaicons.eot") format("embedded-opentype"), url("../fonts/icons/aaIcons.woff") format("woff"), url("../fonts/icons/aaIcons.ttf") format("truetype"), url("../fonts/icons/aaIcons.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
+@font-face {
+  font-family: 'lemonmilk';
+  src: url("../fonts/lemonmilk/lemonmilk-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilk-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilklight';
+  src: url("../fonts/lemonmilk/lemonmilklight-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilklight-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilkbold';
+  src: url("../fonts/lemonmilk/lemonmilkbold-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkbold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilk_italic';
+  src: url("../fonts/lemonmilk/lemonmilkitalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilklight_italic';
+  src: url("../fonts/lemonmilk/lemonmilklightitalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilklightitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilkbold_italic';
+  src: url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
 h1,
 h2,
 h3,
@@ -138,6 +168,36 @@ li {
   src: url("../fonts/icons/aaicons.eot") format("embedded-opentype"), url("../fonts/icons/aaIcons.woff") format("woff"), url("../fonts/icons/aaIcons.ttf") format("truetype"), url("../fonts/icons/aaIcons.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
+@font-face {
+  font-family: 'lemonmilk';
+  src: url("../fonts/lemonmilk/lemonmilk-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilk-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilklight';
+  src: url("../fonts/lemonmilk/lemonmilklight-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilklight-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilkbold';
+  src: url("../fonts/lemonmilk/lemonmilkbold-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkbold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilk_italic';
+  src: url("../fonts/lemonmilk/lemonmilkitalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilklight_italic';
+  src: url("../fonts/lemonmilk/lemonmilklightitalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilklightitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilkbold_italic';
+  src: url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
 footer {
   background-color: #222222;
   height: 50px;
@@ -185,12 +245,9 @@ footer {
   background-image: url("../img/flag_eng.png"); }
 
 #social {
-  color: #FFFFFF;
+  color: #666666;
   display: block;
-  font-family: "tall_dark_and_handsomeCn";
-  font-size: 30px;
-  right: 10px;
-  top: -44px; }
+  right: 10px; }
 
 #social ul {
   display: inline-block; }
@@ -199,26 +256,115 @@ footer {
   display: inline-block; }
 
 #social h4 {
-  display: inline-block; }
+  display: none;
+  font-size: 39px;
+  font-family: "lemonmilklight"; }
 
 #social h4 span {
-  font-size: 20px; }
+  font-size: 29px; }
 
 #social a {
-  color: #FFFFFF;
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  color: #666666;
   font-family: "icons";
   font-size: 32px;
   text-decoration: none; }
 
 #social a:hover {
-  color: #CC3333; }
+  color: #FFFFFF;
+  margin: 0 5px; }
 
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  #social {
-    top: 8px; } }
-@-moz-document url-prefix() {
-  #social {
-    top: -44px; } }
+@-moz-document url-prefix();
+@media only screen and (min-width: 768px) {
+  #social h4 {
+    display: inline-block; } }
+@font-face {
+  font-family: 'tall_dark_and_handsomeCn';
+  src: url("../fonts/talldark/talldark-webfont.eot");
+  src: url("../fonts/talldark/talldark-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/talldark/talldark-webfont.woff2") format("woff2"), url("../fonts/talldark/talldark-webfont.woff") format("woff"), url("../fonts/talldark/talldark-webfont.ttf") format("truetype"), url("../fonts/talldark/talldark-webfont.svg#tall_dark_and_handsomeCn") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'icons';
+  src: url("fonts/aaIcons.eot");
+  src: url("../fonts/icons/aaicons.eot") format("embedded-opentype"), url("../fonts/icons/aaIcons.woff") format("woff"), url("../fonts/icons/aaIcons.ttf") format("truetype"), url("../fonts/icons/aaIcons.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilk';
+  src: url("../fonts/lemonmilk/lemonmilk-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilk-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilklight';
+  src: url("../fonts/lemonmilk/lemonmilklight-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilklight-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilkbold';
+  src: url("../fonts/lemonmilk/lemonmilkbold-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkbold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilk_italic';
+  src: url("../fonts/lemonmilk/lemonmilkitalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilklight_italic';
+  src: url("../fonts/lemonmilk/lemonmilklightitalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilklightitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'lemonmilkbold_italic';
+  src: url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+#loading {
+  background-color: #666666; }
+
+#loading .wrapper {
+  display: table;
+  height: 100%;
+  width: 100%; }
+
+#loading hgroup {
+  display: table-cell;
+  vertical-align: middle; }
+
+#loading h1,
+#loading h2 {
+  display: table;
+  color: #FFFFFF;
+  margin: 0 auto;
+  text-align: center;
+  white-space: nowrap; }
+
+#loading h1 {
+  font-size: 13vw; }
+
+#loading h1 span {
+  margin: 0 -10px;
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in; }
+
+#loading h2 {
+  font-size: 10vw;
+  opacity: 0.5;
+  animation: ANIM-GLOW 10s infinite; }
+
+.loading-off {
+  opacity: 0.2; }
+
+.loading-on {
+  opacity: 1; }
+
+@-moz-document url-prefix();
 html {
   font-size: 1em;
   height: 100%;
@@ -235,10 +381,10 @@ body {
   overflow: hidden; }
 
 h1, h2 {
-  font-family: "tall_dark_and_handsomeCn";
+  font-family: "lemonmilklight";
   font-weight: normal; }
 
-h1 {
+h1, h2 {
   text-shadow: 3px 3px rgba(0, 0, 0, 0.5); }
 
 .rhombus {
@@ -251,171 +397,15 @@ h1 {
   -moz-box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.75); }
 
-.section, #section-home, #section-right, #section-down, #section-left {
-  -webkit-transition: all 0s;
-  transition: all 0s;
+.view {
+  -webkit-transition: all 0s ease-in;
+  -moz-transition: all 0s ease-in;
+  -o-transition: all 0s ease-in;
+  transition: all 0s ease-in;
   height: 100%;
   width: 100%;
   position: absolute; }
 
-#section-home {
-  background-image: url("../img/bastaky_logo_fondo.png");
-  background-size: cover;
-  background-position: center;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  max-height: 906px; }
-
-.home-sq, #section-home-up, #section-home-left, #section-home-right, #section-home-down {
-  -webkit-transition: all 0s;
-  transition: all 0s;
-  background-size: 100%;
-  margin: 0 auto;
-  position: absolute;
-  top: 0px;
-  height: 0px;
-  width: 0px;
-  z-index: 5; }
-
-#section-home-up {
-  background-image: url("../img/bastaky_logo_up.png"); }
-
-#section-home-left {
-  background-image: url("../img/bastaky_logo_left.png"); }
-
-#section-home-right {
-  background-image: url("../img/bastaky_logo_right.png"); }
-
-#section-home-down {
-  background-image: url("../img/bastaky_logo_down.png"); }
-
-.home-button, #bt-left, #bt-right, #bt-down {
-  -webkit-transition: all 0s;
-  transition: all 0s;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  color: #FFFFFF;
-  font-weight: 200;
-  cursor: pointer;
-  font-family: "tall_dark_and_handsomeCn";
-  text-shadow: 2px 2px 2px #222222;
-  letter-spacing: 2px;
-  font-size: 22px;
-  height: 20px;
-  width: 130px;
-  position: absolute;
-  margin: 0 auto;
-  z-index: 9; }
-
-#bt-left {
-  background-image: url("../img/arrow_left.png");
-  background-position: left;
-  text-align: left;
-  padding-left: 20px;
-  left: 10%; }
-
-#bt-right {
-  background-image: url("../img/arrow_right.png");
-  background-position: right;
-  text-align: right;
-  padding-right: 20px;
-  right: 10%; }
-
-#bt-down {
-  background-image: url("../img/arrow_down.png");
-  background-position: bottom;
-  text-align: center;
-  padding-bottom: 20px;
-  bottom: 10%; }
-
 @-moz-document url-prefix();
-@media only screen and (min-width: 768px) {
-  .home-button, #bt-left, #bt-right, #bt-down {
-    background-size: 32px 32px;
-    font-size: 36px;
-    height: 32px;
-    width: 130px; }
-
-  #bt-left {
-    padding-left: 30px;
-    left: 10%; }
-
-  #bt-right {
-    padding-right: 30px;
-    right: 10%; }
-
-  #bt-down {
-    padding-bottom: 30px;
-    bottom: 10%; } }
-#section-right {
-  background-color: #FDD23B; }
-
-.section-content {
-  background-color: #FFFFFF;
-  width: 100%;
-  height: 1000px;
-  margin-top: 180px; }
-
-/* SECTION DOWN */
-#section-down {
-  background-color: #FFFFFF; }
-
-#section-down-header {
-  background-color: #94ABD7;
-  width: 100%;
-  height: 0;
-  position: fixed; }
-
-#section-down-avatar {
-  -webkit-transition: all 0s;
-  transition: all 0s;
-  background-image: url("../img/avatar_down.png");
-  background-size: 100% 100%;
-  width: 386px;
-  height: 386px;
-  margin: 0 auto;
-  position: relative;
-  opacity: 0; }
-
-/* SECTION LEFT */
-#section-left {
-  background-color: #FFFFFF;
-  font-family: "Arial" !important; }
-
-#section-left h2 {
-  font-family: "Arial" !important;
-  font-size: 5vw;
-  text-transform: uppercase;
-  padding: 20px; }
-
-#section-left-column {
-  background-color: #588E3E;
-  float: right;
-  height: 100%;
-  width: 100px; }
-
-@-moz-document url-prefix();
-@media only screen and (min-width: 768px) {
-  .home-button, #bt-left, #bt-right, #bt-down {
-    background-size: 32px 32px;
-    font-size: 36px;
-    height: 32px;
-    width: 130px; }
-
-  #bt-left {
-    padding-left: 30px;
-    left: 10%; }
-
-  #bt-right {
-    padding-right: 30px;
-    right: 10%; }
-
-  #bt-down {
-    padding-bottom: 30px;
-    bottom: 10%; } }
 
 /*# sourceMappingURL=style.css.map */
