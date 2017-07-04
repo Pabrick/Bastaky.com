@@ -32,6 +32,7 @@ window.mobilecheck = function() {
 function loadView(crtView) {
     switch (crtView) {
         case "loading":
+            document.getElementById("loading-bastaky").innerHTML = '<span id="loading-B" class="loading-on">B</span><span id="loading-A" class="loading-on">A</span><span id="loading-S" class="loading-on">S</span><span id="loading-T" class="loading-on">T</span><span id="loading-A2" class="loading-on">A</span><span id="loading-K" class="loading-on">K</span><span id="loading-Y" class="loading-on">Y</span><span id="loading-P" class="loading-on">.</span><span id="loading-C" class="loading-on">C</span><span id="loading-O" class="loading-on">O</span><span id="loading-M" class="loading-on">M</span>';
             loadingAnimInterval = setInterval(playLoadingAnimation, 10000);
             break;
     }

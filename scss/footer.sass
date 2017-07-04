@@ -62,12 +62,17 @@ footer
   display: inline-block
 
 #social h4
-  display: none
-  font-size: 39px
+  @include transition-all(0.5s)
+  display: inline-block
+  font-size: 15px
   font-family: $font-bastaky_light
+  margin-right: 5px
+  opacity: 0
 
 #social h4 span
-  font-size: 29px
+  @include transition-all(0.5s)
+  font-size: 15px
+  margin-right: -5px
 
 #social a
   @include transition-all(0.5s)
@@ -86,4 +91,5 @@ footer
 
 @media only screen and (min-width : 768px)
   #social h4
-    display: inline-block
+    font-size: 25px
+    opacity: 1
