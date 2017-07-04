@@ -347,7 +347,7 @@ footer {
   font-size: 13vw; }
 
 #loading h1 span {
-  margin: 0 -10px;
+  margin: 0;
   -webkit-transition: all 0.5s ease-in;
   -moz-transition: all 0.5s ease-in;
   -o-transition: all 0.5s ease-in;
@@ -356,7 +356,11 @@ footer {
 #loading h2 {
   font-size: 10vw;
   opacity: 0.5;
-  animation: ANIM-GLOW 10s infinite; }
+  animation: ANIM-GLOW 10s infinite;
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in; }
 
 .loading-off {
   opacity: 0.2; }
