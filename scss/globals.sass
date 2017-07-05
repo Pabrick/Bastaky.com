@@ -12,11 +12,11 @@ $color-blue: #94ABD7
 $color-green: #588E3E
 $color-yellow: #FDD23B
 
-@mixin transition-all($seconds)
-  -webkit-transition: all $seconds ease-in
-  -moz-transition: all $seconds ease-in
-  -o-transition: all $seconds ease-in
-  transition: all $seconds ease-in
+@mixin transition-all($seconds, $mode)
+  -webkit-transition: all $seconds $mode
+  -moz-transition: all $seconds $mode
+  -o-transition: all $seconds $mode
+  transition: all $seconds $mode
 
 @mixin transform-rotate($grades)
   -webkit-transform: rotate($grades)

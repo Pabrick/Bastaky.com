@@ -1,35 +1,35 @@
 @import 'fonts'
 @import 'globals'
 
-#loading
+.loading
   background-color: $color-grey
 
-#loading .wrapper
+.loading .wrapper
   display: table
   height: 100%
   width: 100%
 
-#loading hgroup
+.loading hgroup
   display: table-cell
   vertical-align: middle
 
-#loading h1,
-#loading h2
+.loading h1,
+.loading h2
   display: table
   color: $color-white
   margin: 0 auto
   text-align: center
   white-space: nowrap
 
-#loading h1
+.loading h1
   font-size: 13vw
 
-#loading h1 span
-  @include transition-all(.5s)
+.loading h1 span
+  @include transition-all(.5s, ease-in)
   margin: 0
 
-#loading h2
-  @include transition-all(.5s)
+.loading h2
+  @include transition-all(.5s, ease-in)
   font-size: 10vw
   opacity: 0.5
   animation: ANIM-GLOW 10s infinite

@@ -40,6 +40,10 @@
   src: url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
+body {
+  margin: 0;
+  padding: 0; }
+
 h1,
 h2,
 h3,
@@ -70,9 +74,6 @@ fieldset {
   margin: 0;
   padding: 0; }
 
-textarea {
-  resize: vertical; }
-
 p {
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em;
@@ -92,69 +93,7 @@ ul {
   -webkit-margin-after: 0em;
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
-  -webkit-padding-start: 0px;
-  margin: 0;
-  padding: 0; }
-
-li {
-  list-style-type: none;
-  margin: 0;
-  padding: 0; }
-
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0; }
-
-.ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  *text-indent: -9999px; }
-
-.ir:before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 150%; }
-
-.hidden {
-  display: none !important;
-  visibility: hidden; }
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px; }
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto; }
-
-.invisible {
-  visibility: hidden; }
-
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table; }
-
-.clearfix:after {
-  clear: both; }
-
-.clearfix {
-  *zoom: 1; }
+  -webkit-padding-start: 0px; }
 
 @font-face {
   font-family: 'tall_dark_and_handsomeCn';
@@ -207,7 +146,15 @@ footer {
   z-index: 10;
   display: table; }
 
-.footer-block, #languajes, #social {
+footer ul {
+  margin: 0;
+  padding: 0; }
+
+footer li {
+  margin: 0;
+  padding: 0; }
+
+.footer-block, .languajes, .social {
   height: 32px;
   padding-top: 2px;
   position: absolute;
@@ -215,82 +162,82 @@ footer {
   bottom: 0;
   margin: auto; }
 
-#languajes {
+.languajes {
   left: 10px;
   display: block; }
 
-#languajes ul {
+.languajes ul {
   display: block; }
 
-#languajes li {
+.languajes li {
   display: inline-block;
   margin-right: 4px; }
 
-#languajes button {
+.languajes button {
   background-size: 100% 100%;
   cursor: pointer;
   height: 30px;
   width: 30px; }
 
-#languajes button {
+.languajes button {
   border: 1px solid #222222; }
 
-#languajes button:hover {
+.languajes button:hover {
   border: 1px solid #FFFFFF; }
 
-#languajes-spa {
+.languajes-spa {
   background-image: url("../img/flag_spa.png"); }
 
-#languajes-eng {
+.languajes-eng {
   background-image: url("../img/flag_eng.png"); }
 
-#social {
+.social {
   color: #666666;
   display: block;
   right: 10px; }
 
-#social ul {
-  display: inline-block; }
-
-#social li {
-  display: inline-block; }
-
-#social h4 {
-  -webkit-transition: all 0.5s ease-in;
-  -moz-transition: all 0.5s ease-in;
-  -o-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
+.social h4 {
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
   display: inline-block;
   font-size: 15px;
   font-family: "lemonmilklight";
   margin-right: 5px;
   opacity: 0; }
 
-#social h4 span {
-  -webkit-transition: all 0.5s ease-in;
-  -moz-transition: all 0.5s ease-in;
-  -o-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
+.social h4 span {
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
   font-size: 15px;
   margin-right: -5px; }
 
-#social a {
-  -webkit-transition: all 0.5s ease-in;
-  -moz-transition: all 0.5s ease-in;
-  -o-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
+.social ul {
+  display: inline-block; }
+
+.social li {
+  display: inline-block; }
+
+.social a {
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
   color: #666666;
   font-family: "icons";
   font-size: 32px;
   text-decoration: none; }
 
-#social a:hover {
+.social a:hover {
   color: #FFFFFF;
   margin: 0 5px; }
 
 @-moz-document url-prefix();
 @media only screen and (min-width: 768px) {
-  #social h4 {
+  .social h4 {
     font-size: 25px;
     opacity: 1; } }
 @font-face {
@@ -335,37 +282,37 @@ footer {
   src: url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff2") format("woff2"), url("../fonts/lemonmilk/lemonmilkbolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
-#loading {
+.loading {
   background-color: #666666; }
 
-#loading .wrapper {
+.loading .wrapper {
   display: table;
   height: 100%;
   width: 100%; }
 
-#loading hgroup {
+.loading hgroup {
   display: table-cell;
   vertical-align: middle; }
 
-#loading h1,
-#loading h2 {
+.loading h1,
+.loading h2 {
   display: table;
   color: #FFFFFF;
   margin: 0 auto;
   text-align: center;
   white-space: nowrap; }
 
-#loading h1 {
+.loading h1 {
   font-size: 13vw; }
 
-#loading h1 span {
+.loading h1 span {
   -webkit-transition: all 0.5s ease-in;
   -moz-transition: all 0.5s ease-in;
   -o-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
   margin: 0; }
 
-#loading h2 {
+.loading h2 {
   -webkit-transition: all 0.5s ease-in;
   -moz-transition: all 0.5s ease-in;
   -o-transition: all 0.5s ease-in;
@@ -414,10 +361,6 @@ h1, h2 {
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.75); }
 
 .view {
-  -webkit-transition: all 0s ease-in;
-  -moz-transition: all 0s ease-in;
-  -o-transition: all 0s ease-in;
-  transition: all 0s ease-in;
   height: 100%;
   width: 100%;
   position: absolute; }

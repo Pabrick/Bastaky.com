@@ -1,99 +1,75 @@
-#section-home {
-  background-image: url("../img/bastaky_logo_fondo.png");
-  background-size: cover;
-  background-position: center;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  max-height: 906px; }
+/*
+Error: Mixin transition-all is missing argument $mode.
+        on line 18 of scss/section_home.sass, in `transition-all'
+        from line 18 of scss/section_home.sass
 
-.home-sq, #section-home-up, #section-home-left, #section-home-right, #section-home-down {
-  -webkit-transition: all 0s ease-in;
-  -moz-transition: all 0s ease-in;
-  -o-transition: all 0s ease-in;
-  transition: all 0s ease-in;
-  background-size: 100%;
-  margin: 0 auto;
-  position: absolute;
-  top: 0px;
-  height: 0px;
-  width: 0px;
-  z-index: 5; }
+13:   width: 100%
+14:   height: 100%
+15:   max-height: 906px
+16: 
+17: .home-sq
+18:   @include transition-all(0s)
+19:   background-size: 100%
+20:   margin: 0 auto
+21:   position: absolute
+22:   top: 0px
+23:   height: 0px
 
-#section-home-up {
-  background-image: url("../img/bastaky_logo_up.png"); }
-
-#section-home-left {
-  background-image: url("../img/bastaky_logo_left.png"); }
-
-#section-home-right {
-  background-image: url("../img/bastaky_logo_right.png"); }
-
-#section-home-down {
-  background-image: url("../img/bastaky_logo_down.png"); }
-
-.home-button, #bt-left, #bt-right, #bt-down {
-  -webkit-transition: all 0s ease-in;
-  -moz-transition: all 0s ease-in;
-  -o-transition: all 0s ease-in;
-  transition: all 0s ease-in;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  color: #FFFFFF;
-  font-weight: 200;
-  cursor: pointer;
-  font-family: "lemonmilk";
-  text-shadow: 2px 2px 2px #222222;
-  letter-spacing: 2px;
-  font-size: 22px;
-  height: 20px;
-  width: 130px;
-  position: absolute;
-  margin: 0 auto;
-  z-index: 9; }
-
-#bt-left {
-  background-image: url("../img/arrow_left.png");
-  background-position: left;
-  text-align: left;
-  padding-left: 20px;
-  left: 10%; }
-
-#bt-right {
-  background-image: url("../img/arrow_right.png");
-  background-position: right;
-  text-align: right;
-  padding-right: 20px;
-  right: 10%; }
-
-#bt-down {
-  background-image: url("../img/arrow_down.png");
-  background-position: bottom;
-  text-align: center;
-  padding-bottom: 20px;
-  bottom: 10%; }
-
-@-moz-document url-prefix();
-@media only screen and (min-width: 768px) {
-  .home-button, #bt-left, #bt-right, #bt-down {
-    background-size: 32px 32px;
-    font-size: 36px;
-    height: 32px;
-    width: 130px; }
-
-  #bt-left {
-    padding-left: 30px;
-    left: 10%; }
-
-  #bt-right {
-    padding-right: 30px;
-    right: 10%; }
-
-  #bt-down {
-    padding-bottom: 30px;
-    bottom: 10%; } }
-
-/*# sourceMappingURL=section_home.css.map */
+Backtrace:
+scss/section_home.sass:18:in `transition-all'
+scss/section_home.sass:18
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:73:in `block in perform_arguments'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:65:in `zip'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:65:in `perform_arguments'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:361:in `block in visit_mixin'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:98:in `block in with_mixin'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:98:in `with_mixin'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:349:in `visit_mixin'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `map'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `map'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:159:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:8:in `visit'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/root_node.rb:36:in `css_tree'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:298:in `render_with_sourcemap'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `each'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:473:in `on_file_changed'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:331:in `block in watch'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Mixin transition-all is missing argument $mode.\A         on line 18 of scss/section_home.sass, in `transition-all'\A         from line 18 of scss/section_home.sass\A \A 13:   width: 100%\A 14:   height: 100%\A 15:   max-height: 906px\A 16: \A 17: .home-sq\A 18:   @include transition-all(0s)\A 19:   background-size: 100%\A 20:   margin: 0 auto\A 21:   position: absolute\A 22:   top: 0px\A 23:   height: 0px"; }

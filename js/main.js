@@ -7,6 +7,7 @@ var isDeviceMobile;
 var loadingAnimInterval;
 
 var crtView = "loading";
+var crtLang = "spa";
 
 window.onload = function() {
     utils = new PabrickUtils();
@@ -17,8 +18,8 @@ window.onload = function() {
     utils.showDebug("log", "BrowserDetect.browser - " + BrowserDetect.browser);
     utils.showDebug("log", "MobileDevide = " + isDeviceMobile);
 
-    document.getElementById("languajes-spa").onclick = function() { translateWebSite("spa") };
-    document.getElementById("languajes-eng").onclick = function() { translateWebSite("eng") };
+    document.getElementById("bt-spa").onclick = function() { translateWebSite("spa") };
+    document.getElementById("bt-eng").onclick = function() { translateWebSite("eng") };
 
     loadView(crtView);
 };

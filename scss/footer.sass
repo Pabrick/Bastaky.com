@@ -10,6 +10,14 @@ footer
   z-index: 10
   display: table
 
+footer ul
+  margin: 0
+  padding: 0
+
+footer li
+  margin: 0
+  padding: 0
+
 .footer-block
   height: 32px
   padding-top: 2px
@@ -18,70 +26,69 @@ footer
   bottom: 0
   margin: auto
 
-#languajes
+.languajes
   @extend .footer-block
   left: 10px
   display: block
 
-#languajes ul 
+.languajes ul 
   display: block
 
-#languajes li
+.languajes li
   display: inline-block
   margin-right: 4px
 
-#languajes button
+.languajes button
   background-size: 100% 100%
   cursor: pointer
   height: 30px
   width: 30px
   
-
-#languajes button
+.languajes button
   border: 1px solid $color-black
 
-#languajes button:hover
+.languajes button:hover
   border: 1px solid $color-white
 
-#languajes-spa
+.languajes-spa
   background-image: url('../img/flag_spa.png')
 
-#languajes-eng
+.languajes-eng
   background-image: url('../img/flag_eng.png')
 
-#social
+.social
   @extend .footer-block
   color: $color-grey
   display: block
   right: 10px
 
-#social ul
-  display: inline-block
-
-#social li
-  display: inline-block
-
-#social h4
-  @include transition-all(0.5s)
+.social h4
+  @include transition-all(.5s, linear)
   display: inline-block
   font-size: 15px
   font-family: $font-bastaky_light
   margin-right: 5px
   opacity: 0
 
-#social h4 span
-  @include transition-all(0.5s)
+.social h4 span
+  @include transition-all(.5s, linear)
   font-size: 15px
   margin-right: -5px
 
-#social a
-  @include transition-all(0.5s)
+.social ul
+  display: inline-block
+
+.social li
+  display: inline-block
+
+.social a
+  @include transition-all(.2s, linear)
   color: $color-grey
   font-family: $font-icon
   font-size: 32px
   text-decoration: none
 
-#social a:hover
+.social a:hover
   color: $color-white
   margin: 0 5px
 
@@ -90,6 +97,6 @@ footer
 @-moz-document url-prefix()
 
 @media only screen and (min-width : 768px)
-  #social h4
+  .social h4
     font-size: 25px
     opacity: 1
