@@ -1,9 +1,17 @@
-import React from 'react';
+import './../styles/Header.css';
 
-const Header = () => (
-    <header className="app-header">
-        El componente Header
-    </header>
-);
+import React, { Component } from 'react';
+
+class Header extends Component {
+    render() {
+        const value = '10px';
+        console.log(value);
+        return (
+            <header className="app-header">
+                El componente Header
+            </header>
+        );
+    }
+}
 
 export default Header;
