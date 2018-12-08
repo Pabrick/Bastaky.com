@@ -1,26 +1,40 @@
 @import url("./../assets/fonts/red_october/red_october.css");
 
 .app-header {
-  background-color: red;
+  background-color: #683833;
+  background-color: #333333;
+  min-width: 50px;
   width: 100%;
-}
-.app-header .header-bar {
-  background-color: green;
-  display: block;
-  height: 10px;
-  width: 100%;
+  border-bottom: 0px solid #4f2f2c;
 }
 
 .app-header .wrapper {
+  background-image: url('./../assets/images/header-bg-mobile.png');
+  background-position: right;
+  background-repeat: no-repeat;
   height: 100%;
   margin: 0 auto;
-  max-width: 1200px;
+  -webkit-box-shadow: 0px 0px 50px 0px rgba(0,0,0,.75);
+  -moz-box-shadow: 0px 0px 50px 0px rgba(0,0,0,.75);
+  box-shadow: 0px 0px 50px 0px rgba(0,0,0,.75);
 }
 
 .app-header .header-wrapper {
-  background-color: red;
   height: auto;
   position: relative;
+  transition: all 0.2s linear;
+}
+
+.app-header .header-pabrick {
+  background-image: url('./../assets/images/pabrick.png');
+  background-size: contain;
+  display: none;
+  height: 374px;
+  width: 374px;
+  left: 0px;
+  position: absolute;
+  z-index: 100;
+  transition: all 0.2s linear;
 }
 
 .app-header h1 {
@@ -29,9 +43,11 @@
   font-family: 'Red October Regular';
   font-size: 40px;
   margin: 0 auto 0 20px;
+  min-height: 50px;
   text-align: left;
   text-shadow: 4px 4px rgba(0,0,0,.5);
   width: 260px;
+  transition: all 0.2s linear;
 }
 .app-header h1 span {
   display: inline-block;
@@ -46,7 +62,7 @@
   transform: rotate(-90deg);
 }
 .app-header button {
-  background-color: blue;
+  background-color: #FFFFFF;
   border-color: transparent;
   border-radius: 0;
   border-width: 0;
@@ -63,6 +79,13 @@
 
 
 @media screen and (min-width: 768px) {
+  .app-header .wrapper {
+    background-image: url('./../assets/images/header-bg.png');
+    background-position: -80px;
+  }
+  .app-header .header-pabrick {
+    display: block;
+  }
   .app-header h1 {
     font-size: 150px;
     margin: 0 40px 0 auto;
@@ -88,6 +111,25 @@
   }
   .app-header button {
     display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .app-header .wrapper {
+    background-position: 0;
+  }
+  .app-header .header-pabrick {
+    height: 496px;
+    width: 496px;
+  }
+  .app-header h1 {
+    font-size: 200px;
+    width: 635px;
+  }
+  .app-header h1 .h1-rotation {
+    font-size: 60px;
+    left: 439px;
+    top: 89px;
   }
 }
 
