@@ -1,0 +1,59 @@
+.app-header .overlay {
+  background-color: rgba(0,0,0,.5);
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.app-header .overlay.close { top: -100%; }
+.app-header .overlay.open { top: 0%; }
+
+.app-header .overlay nav {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.app-header .overlay .menu-bt {
+  background-color: #CD2C1C;
+  box-shadow: 10px 10px rgba(0,0,0,.5);
+  border-width: 0;
+  cursor: pointer;
+  display: block;
+  height: 50px;
+  width: 70%;
+  max-width: 280px;
+  margin: 40px auto;
+}
+
+.app-header .overlay .menu-bt span {
+  display: table-cell;
+  color: #FEFEFE;
+  font-family: 'Red October Regular';
+  font-size: 32px;
+}
+
+.app-header .overlay .menu-bt span::before {
+  background-size: contain;
+  border: 3px solid #FFFFFF;
+  content: '';
+  display: table-cell;
+  margin-right: 10px;
+  height: 34px;
+  width: 34px;
+  float: left;
+}
+
+.app-header .overlay .bt-history span::before { background-image: url('./../assets/images/bt_history.png'); }
+.app-header .overlay .bt-timeline span::before { background-image: url('./../assets/images/bt_timeline.png'); }
+.app-header .overlay .bt-badges span::before { background-image: url('./../assets/images/bt_badges.png'); }
+.app-header .overlay .bt-contact span::before { background-image: url('./../assets/images/bt_contact.png'); }
+
+@media screen and (min-width: 700px) {
+  .app-header .overlay {
+    display: none;
+  }
+}

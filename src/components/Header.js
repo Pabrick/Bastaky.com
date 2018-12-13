@@ -1,4 +1,6 @@
 import './../styles/Header.css';
+import './../styles/Header-Menu-Button.css';
+import './../styles/Header-Overlay.css';
 
 import React, { Component } from 'react';
 
@@ -26,6 +28,22 @@ class Header extends Component {
                     <button className={`header-bt-menu ${this.state.menuOpen ? 'open': 'close'}`} onClick={this.toogleMenu}>
                         <span></span><span></span><span></span><span></span>
                     </button>
+                </div>
+                <div className={`overlay ${this.state.menuOpen ? 'open': 'close'}`}>
+                    <nav>
+                        <button className="menu-bt bt-history">
+                            <span>History</span>
+                        </button>
+                        <button className="menu-bt bt-timeline">
+                            <span>Timeline</span>
+                        </button>
+                        <button className="menu-bt bt-badges">
+                            <span>Badges</span>
+                        </button>
+                        <button className="menu-bt bt-contact">
+                            <span>Contact</span>
+                        </button>
+                    </nav>
                 </div>
             </header>
         );
