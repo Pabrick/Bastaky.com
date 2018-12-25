@@ -1,0 +1,25 @@
+@import url("./../theme.css");
+
+.app-history {
+    background-color: #EEE;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.app-history .app-history-wrapper {
+    padding: 0 20px;
+}
+
+.app-history h2 {
+    color: #222222;
+    display: block;
+    font-family: 'Red October Regular';
+    font-size: 30px;
+    margin: 0;
+    text-align: left;
+    text-shadow: 2px 2px rgba(0,0,0,.5);
+}
+
+.app-history p {
+    text-align: left;
+}

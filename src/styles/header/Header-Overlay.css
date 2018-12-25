@@ -47,10 +47,10 @@
   float: left;
 }
 
-.app-header .overlay .bt-history span::before { background-image: url('./../assets/images/bt_history.png'); }
-.app-header .overlay .bt-timeline span::before { background-image: url('./../assets/images/bt_timeline.png'); }
-.app-header .overlay .bt-badges span::before { background-image: url('./../assets/images/bt_badges.png'); }
-.app-header .overlay .bt-contact span::before { background-image: url('./../assets/images/bt_contact.png'); }
+.app-header .overlay .bt-history span::before { background-image: url('./../../assets/images/bt_history.png'); }
+.app-header .overlay .bt-timeline span::before { background-image: url('./../../assets/images/bt_timeline.png'); }
+.app-header .overlay .bt-badges span::before { background-image: url('./../../assets/images/bt_badges.png'); }
+.app-header .overlay .bt-contact span::before { background-image: url('./../../assets/images/bt_contact.png'); }
 
 @media screen and (min-width: 700px) {
   .app-header .overlay {

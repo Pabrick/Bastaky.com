@@ -1,4 +1,4 @@
-@import url("./../assets/fonts/red_october/red_october.css");
+@import url("./../theme.css");
 
 .app-header {
   background-color: #683833;
@@ -9,7 +9,7 @@
 }
 
 .app-header .wrapper {
-  background-image: url('./../assets/images/header-bg-mobile.png');
+  background-image: url('./../../assets/images/header-bg-mobile.png');
   background-position: right;
   background-repeat: no-repeat;
   height: 100%;
@@ -28,7 +28,7 @@
 }
 
 .app-header .header-pabrick {
-  background-image: url('./../assets/images/pabrick.png');
+  background-image: url('./../../assets/images/pabrick.png');
   background-size: contain;
   display: block;
   height: 50px;
@@ -67,7 +67,7 @@
 
 @media screen and (min-width: 700px) {
   .app-header .wrapper {
-    background-image: url('./../assets/images/header-bg.png');
+    background-image: url('./../../assets/images/header-bg.png');
     background-position: -80px;
   }
   .app-header .header-pabrick {

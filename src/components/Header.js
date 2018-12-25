@@ -1,6 +1,6 @@
-import './../styles/Header.css';
-import './../styles/Header-Menu-Button.css';
-import './../styles/Header-Overlay.css';
+import './../styles/header/Header.css';
+import './../styles/header/Header-Menu-Button.css';
+import './../styles/header/Header-Overlay.css';
 
 import React, { Component } from 'react';
 
